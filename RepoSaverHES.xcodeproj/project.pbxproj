@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		311820BF29258F260067A2C1 /* RepoSaverHESApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311820BE29258F260067A2C1 /* RepoSaverHESApp.swift */; };
-		311820C129258F260067A2C1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311820C029258F260067A2C1 /* ContentView.swift */; };
+		311820C129258F260067A2C1 /* RepoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311820C029258F260067A2C1 /* RepoView.swift */; };
 		311820C329258F270067A2C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 311820C229258F270067A2C1 /* Assets.xcassets */; };
 		311820C629258F270067A2C1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 311820C529258F270067A2C1 /* Preview Assets.xcassets */; };
 		311820D3292590DC0067A2C1 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 311820D2292590DC0067A2C1 /* Realm */; };
@@ -17,17 +17,23 @@
 		31CD06412925927700D0640D /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06402925927700D0640D /* Repo.swift */; };
 		31CD06432925931B00D0640D /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06422925931B00D0640D /* Owner.swift */; };
 		31CD06452925935A00D0640D /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06442925935A00D0640D /* Favorite.swift */; };
+		31CD06472925A01300D0640D /* MoyaTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06462925A01300D0640D /* MoyaTarget.swift */; };
+		31CD06492925A06300D0640D /* RepoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06482925A06300D0640D /* RepoService.swift */; };
+		31CD064B2925A14800D0640D /* RepoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD064A2925A14800D0640D /* RepoVM.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		311820BB29258F260067A2C1 /* RepoSaverHES.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RepoSaverHES.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		311820BE29258F260067A2C1 /* RepoSaverHESApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSaverHESApp.swift; sourceTree = "<group>"; };
-		311820C029258F260067A2C1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		311820C029258F260067A2C1 /* RepoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoView.swift; sourceTree = "<group>"; };
 		311820C229258F270067A2C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		311820C529258F270067A2C1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		31CD06402925927700D0640D /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		31CD06422925931B00D0640D /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		31CD06442925935A00D0640D /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
+		31CD06462925A01300D0640D /* MoyaTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaTarget.swift; sourceTree = "<group>"; };
+		31CD06482925A06300D0640D /* RepoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoService.swift; sourceTree = "<group>"; };
+		31CD064A2925A14800D0640D /* RepoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoVM.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,8 +71,8 @@
 			children = (
 				311820BE29258F260067A2C1 /* RepoSaverHESApp.swift */,
 				311820CC29258F8B0067A2C1 /* Views */,
-				311820CE29258F9D0067A2C1 /* Models */,
 				311820CD29258F970067A2C1 /* ViewModels */,
+				311820CE29258F9D0067A2C1 /* Models */,
 				311820D029258FAF0067A2C1 /* Networking */,
 				311820CF29258FA50067A2C1 /* Extensions */,
 				311820C229258F270067A2C1 /* Assets.xcassets */,
@@ -86,7 +92,7 @@
 		311820CC29258F8B0067A2C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				311820C029258F260067A2C1 /* ContentView.swift */,
+				311820C029258F260067A2C1 /* RepoView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -94,6 +100,7 @@
 		311820CD29258F970067A2C1 /* ViewModels */ = {
 			isa = PBXGroup;
 			children = (
+				31CD064A2925A14800D0640D /* RepoVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -118,6 +125,8 @@
 		311820D029258FAF0067A2C1 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				31CD06462925A01300D0640D /* MoyaTarget.swift */,
+				31CD06482925A06300D0640D /* RepoService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -201,11 +210,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31CD064B2925A14800D0640D /* RepoVM.swift in Sources */,
 				31CD06452925935A00D0640D /* Favorite.swift in Sources */,
 				31CD06412925927700D0640D /* Repo.swift in Sources */,
+				31CD06472925A01300D0640D /* MoyaTarget.swift in Sources */,
 				31CD06432925931B00D0640D /* Owner.swift in Sources */,
-				311820C129258F260067A2C1 /* ContentView.swift in Sources */,
+				311820C129258F260067A2C1 /* RepoView.swift in Sources */,
 				311820BF29258F260067A2C1 /* RepoSaverHESApp.swift in Sources */,
+				31CD06492925A06300D0640D /* RepoService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
