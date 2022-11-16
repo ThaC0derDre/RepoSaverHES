@@ -52,7 +52,11 @@
 			isa = PBXGroup;
 			children = (
 				311820BE29258F260067A2C1 /* RepoSaverHESApp.swift */,
-				311820C029258F260067A2C1 /* ContentView.swift */,
+				311820CE29258F9D0067A2C1 /* Models */,
+				311820CD29258F970067A2C1 /* ViewModels */,
+				311820CC29258F8B0067A2C1 /* Views */,
+				311820D029258FAF0067A2C1 /* Networking */,
+				311820CF29258FA50067A2C1 /* Extensions */,
 				311820C229258F270067A2C1 /* Assets.xcassets */,
 				311820C429258F270067A2C1 /* Preview Content */,
 			);
@@ -65,6 +69,42 @@
 				311820C529258F270067A2C1 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		311820CC29258F8B0067A2C1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				311820C029258F260067A2C1 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		311820CD29258F970067A2C1 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		311820CE29258F9D0067A2C1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		311820CF29258FA50067A2C1 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		311820D029258FAF0067A2C1 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
