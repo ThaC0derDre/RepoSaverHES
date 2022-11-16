@@ -14,6 +14,9 @@
 		311820D3292590DC0067A2C1 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 311820D2292590DC0067A2C1 /* Realm */; };
 		311820D5292590DC0067A2C1 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 311820D4292590DC0067A2C1 /* RealmSwift */; };
 		311820D8292591090067A2C1 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 311820D7292591090067A2C1 /* Moya */; };
+		31CD06412925927700D0640D /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06402925927700D0640D /* Repo.swift */; };
+		31CD06432925931B00D0640D /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06422925931B00D0640D /* Owner.swift */; };
+		31CD06452925935A00D0640D /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06442925935A00D0640D /* Favorite.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		311820C029258F260067A2C1 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		311820C229258F270067A2C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		311820C529258F270067A2C1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		31CD06402925927700D0640D /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
+		31CD06422925931B00D0640D /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
+		31CD06442925935A00D0640D /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +101,9 @@
 		311820CE29258F9D0067A2C1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				31CD06402925927700D0640D /* Repo.swift */,
+				31CD06422925931B00D0640D /* Owner.swift */,
+				31CD06442925935A00D0640D /* Favorite.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -192,6 +201,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31CD06452925935A00D0640D /* Favorite.swift in Sources */,
+				31CD06412925927700D0640D /* Repo.swift in Sources */,
+				31CD06432925931B00D0640D /* Owner.swift in Sources */,
 				311820C129258F260067A2C1 /* ContentView.swift in Sources */,
 				311820BF29258F260067A2C1 /* RepoSaverHESApp.swift in Sources */,
 			);
