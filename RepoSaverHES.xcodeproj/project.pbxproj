@@ -11,6 +11,9 @@
 		311820C129258F260067A2C1 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 311820C029258F260067A2C1 /* ContentView.swift */; };
 		311820C329258F270067A2C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 311820C229258F270067A2C1 /* Assets.xcassets */; };
 		311820C629258F270067A2C1 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 311820C529258F270067A2C1 /* Preview Assets.xcassets */; };
+		311820D3292590DC0067A2C1 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 311820D2292590DC0067A2C1 /* Realm */; };
+		311820D5292590DC0067A2C1 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 311820D4292590DC0067A2C1 /* RealmSwift */; };
+		311820D8292591090067A2C1 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 311820D7292591090067A2C1 /* Moya */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				311820D5292590DC0067A2C1 /* RealmSwift in Frameworks */,
+				311820D3292590DC0067A2C1 /* Realm in Frameworks */,
+				311820D8292591090067A2C1 /* Moya in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,9 +58,9 @@
 			isa = PBXGroup;
 			children = (
 				311820BE29258F260067A2C1 /* RepoSaverHESApp.swift */,
+				311820CC29258F8B0067A2C1 /* Views */,
 				311820CE29258F9D0067A2C1 /* Models */,
 				311820CD29258F970067A2C1 /* ViewModels */,
-				311820CC29258F8B0067A2C1 /* Views */,
 				311820D029258FAF0067A2C1 /* Networking */,
 				311820CF29258FA50067A2C1 /* Extensions */,
 				311820C229258F270067A2C1 /* Assets.xcassets */,
@@ -123,6 +129,11 @@
 			dependencies = (
 			);
 			name = RepoSaverHES;
+			packageProductDependencies = (
+				311820D2292590DC0067A2C1 /* Realm */,
+				311820D4292590DC0067A2C1 /* RealmSwift */,
+				311820D7292591090067A2C1 /* Moya */,
+			);
 			productName = RepoSaverHES;
 			productReference = 311820BB29258F260067A2C1 /* RepoSaverHES.app */;
 			productType = "com.apple.product-type.application";
@@ -151,6 +162,10 @@
 				Base,
 			);
 			mainGroup = 311820B229258F260067A2C1;
+			packageReferences = (
+				311820D1292590DC0067A2C1 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
+				311820D6292591090067A2C1 /* XCRemoteSwiftPackageReference "Moya" */,
+			);
 			productRefGroup = 311820BC29258F260067A2C1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -379,6 +394,43 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		311820D1292590DC0067A2C1 /* XCRemoteSwiftPackageReference "realm-cocoa" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-cocoa";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		311820D6292591090067A2C1 /* XCRemoteSwiftPackageReference "Moya" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Moya/Moya.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		311820D2292590DC0067A2C1 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 311820D1292590DC0067A2C1 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = Realm;
+		};
+		311820D4292590DC0067A2C1 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 311820D1292590DC0067A2C1 /* XCRemoteSwiftPackageReference "realm-cocoa" */;
+			productName = RealmSwift;
+		};
+		311820D7292591090067A2C1 /* Moya */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 311820D6292591090067A2C1 /* XCRemoteSwiftPackageReference "Moya" */;
+			productName = Moya;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 311820B329258F260067A2C1 /* Project object */;
 }
