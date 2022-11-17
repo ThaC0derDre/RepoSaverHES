@@ -12,19 +12,30 @@ struct RepoView: View {
     @StateObject private var vm = RepoVM()
     
     var body: some View {
-        ScrollView {
-            VStack {
-                ForEach(vm.repos) { repo in
-                    Text(repo.fullName ?? "Unknown Name")
+        GeometryReader { proxy in
+            VStack(spacing: 0) {
+                RepoHeader(proxy: proxy)
+                ScrollView {
+                    VStack(spacing: 0) {
+//                        ForEach(vm.repos) { repo in
+//                            RepoCell(repo: repo)
+//                        }
+                        Text("Desc")
+                        .padding()
+                    }
                 }
             }
+                .ignoresSafeArea()
         }
-        .padding()
     }
 }
 
 struct RepoView_Previews: PreviewProvider {
     static var previews: some View {
         RepoView()
+        //            .preferredColorScheme(.dark)
     }
+}
+
+extension RepoView {
 }

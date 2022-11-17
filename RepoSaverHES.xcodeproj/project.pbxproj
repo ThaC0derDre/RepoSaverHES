@@ -20,6 +20,9 @@
 		31CD06472925A01300D0640D /* MoyaTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06462925A01300D0640D /* MoyaTarget.swift */; };
 		31CD06492925A06300D0640D /* RepoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06482925A06300D0640D /* RepoService.swift */; };
 		31CD064B2925A14800D0640D /* RepoVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD064A2925A14800D0640D /* RepoVM.swift */; };
+		31D192B52925CFAB00CD869E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D192B42925CFAB00CD869E /* Colors.xcassets */; };
+		31D192B92925DB0500CD869E /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D192B82925DB0500CD869E /* RepoCell.swift */; };
+		31D192BB2925F1EC00CD869E /* RepoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D192BA2925F1EC00CD869E /* RepoHeader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		31CD06462925A01300D0640D /* MoyaTarget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoyaTarget.swift; sourceTree = "<group>"; };
 		31CD06482925A06300D0640D /* RepoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoService.swift; sourceTree = "<group>"; };
 		31CD064A2925A14800D0640D /* RepoVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoVM.swift; sourceTree = "<group>"; };
+		31D192B42925CFAB00CD869E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
+		31D192B82925DB0500CD869E /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
+		31D192BA2925F1EC00CD869E /* RepoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoHeader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +81,7 @@
 				311820CE29258F9D0067A2C1 /* Models */,
 				311820D029258FAF0067A2C1 /* Networking */,
 				311820CF29258FA50067A2C1 /* Extensions */,
-				311820C229258F270067A2C1 /* Assets.xcassets */,
+				31D192B62925D12C00CD869E /* Assests */,
 				311820C429258F270067A2C1 /* Preview Content */,
 			);
 			path = RepoSaverHES;
@@ -92,6 +98,7 @@
 		311820CC29258F8B0067A2C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				31D192B72925DAD800CD869E /* SubViews */,
 				311820C029258F260067A2C1 /* RepoView.swift */,
 			);
 			path = Views;
@@ -129,6 +136,24 @@
 				31CD06482925A06300D0640D /* RepoService.swift */,
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		31D192B62925D12C00CD869E /* Assests */ = {
+			isa = PBXGroup;
+			children = (
+				311820C229258F270067A2C1 /* Assets.xcassets */,
+				31D192B42925CFAB00CD869E /* Colors.xcassets */,
+			);
+			path = Assests;
+			sourceTree = "<group>";
+		};
+		31D192B72925DAD800CD869E /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				31D192B82925DB0500CD869E /* RepoCell.swift */,
+				31D192BA2925F1EC00CD869E /* RepoHeader.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -198,6 +223,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				31D192B52925CFAB00CD869E /* Colors.xcassets in Resources */,
 				311820C629258F270067A2C1 /* Preview Assets.xcassets in Resources */,
 				311820C329258F270067A2C1 /* Assets.xcassets in Resources */,
 			);
@@ -212,9 +238,11 @@
 			files = (
 				31CD064B2925A14800D0640D /* RepoVM.swift in Sources */,
 				31CD06452925935A00D0640D /* Favorite.swift in Sources */,
+				31D192BB2925F1EC00CD869E /* RepoHeader.swift in Sources */,
 				31CD06412925927700D0640D /* Repo.swift in Sources */,
 				31CD06472925A01300D0640D /* MoyaTarget.swift in Sources */,
 				31CD06432925931B00D0640D /* Owner.swift in Sources */,
+				31D192B92925DB0500CD869E /* RepoCell.swift in Sources */,
 				311820C129258F260067A2C1 /* RepoView.swift in Sources */,
 				311820BF29258F260067A2C1 /* RepoSaverHESApp.swift in Sources */,
 				31CD06492925A06300D0640D /* RepoService.swift in Sources */,
@@ -274,6 +302,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -328,6 +357,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -352,6 +382,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -381,6 +412,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
