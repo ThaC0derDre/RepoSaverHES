@@ -12,19 +12,20 @@ struct Repo: Codable, Identifiable {
         case id
         case fullName = "full_name"
         case owner
-        case url
         case description
-        case languages = "languages_url"
-        case contributors = "contributors_url"
+        case language = "languages_url"
     }
     
     let id: Int?
     let fullName: String?
     let owner: Owner
-    let url: String
     let description: String?
-    let languages: String?
-    let contributors: String?
+    let language: String?
     
 }
 
+extension Repo {
+    
+    static let example = Repo(id: 22, fullName: "caged/microsis", owner: Owner.example, description: "Treat an ActiveRecord model as a file attachment, storing its patch, size, content type, etc.", language: "https://api.github.com/repos/technoweenie/attachment_fu/languages")
+    
+}

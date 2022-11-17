@@ -12,19 +12,32 @@ enum RepoService {
     case showRepos
     case selectedRepo(url: String)
     case grabLanguage(url: String)
+    case grabAvatarImage(url: String)
 }
 
 extension RepoService: TargetType {
     var baseURL: URL {
-        URL(string: "https://api.github.com")!
+        switch self {
+        case .showRepos, .selectedRepo , .grabLanguage:
+            return URL(string: "https://api.github.com")!
+        case .grabAvatarImage:
+            return URL(string: "https://avatars.githubusercontent.com/u/")!
+        }
+        
     }
     
     var path: String {
         switch self {
         case .showRepos:
             return "/repositories"
-        case .selectedRepo(let url), .grabLanguage(let url):
+        case .selectedRepo(let url),
+             .grabLanguage(let url):
             let splitUrl = url.components(separatedBy: ".com")
+            return splitUrl.last!
+            
+        case .grabAvatarImage(let url):
+            let splitUrl = url.components(separatedBy: "u/")
+            print(splitUrl)
             return splitUrl.last!
         }
     }
@@ -32,8 +45,9 @@ extension RepoService: TargetType {
     var method: Moya.Method {
         switch self {
         case .showRepos,
-             .selectedRepo ,
-             .grabLanguage:
+             .selectedRepo,
+             .grabLanguage,
+             .grabAvatarImage:
             return .get
         }
     }
@@ -46,7 +60,8 @@ extension RepoService: TargetType {
         switch self {
         case .showRepos,
              .selectedRepo,
-             .grabLanguage:
+             .grabLanguage,
+             .grabAvatarImage:
             return .requestPlain
         }
     }
@@ -56,3 +71,6 @@ extension RepoService: TargetType {
     }
     
 }
+
+// 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
+// `dc9cf1330ccca7b454d5414347c2f69d09420cdb`

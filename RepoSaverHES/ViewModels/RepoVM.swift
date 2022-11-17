@@ -24,8 +24,12 @@ class RepoVM: ObservableObject {
                 guard
                     let self = self,
                     let receivedRepos = try? response.map([Repo].self)
-                else { return }
-                
+                else {
+                    let status = response.statusCode
+                    print(status)
+                    print("🔥 Failed to map Repo")
+                    return
+                }
                 self.repos = receivedRepos
             case .failure(let error):
                 print("🔥 Error downloading Repos", error)

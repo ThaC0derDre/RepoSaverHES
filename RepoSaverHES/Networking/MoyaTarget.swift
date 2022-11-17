@@ -11,6 +11,7 @@ import Moya
 class MoyaTarget {
     static let instance = MoyaTarget()
     let provider = MoyaProvider<RepoService>()
+    let prvder = MoyaProvider<AvatarService>()
     
     private init() { }
 }

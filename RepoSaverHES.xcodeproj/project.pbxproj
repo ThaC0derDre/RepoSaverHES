@@ -23,6 +23,11 @@
 		31D192B52925CFAB00CD869E /* Colors.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 31D192B42925CFAB00CD869E /* Colors.xcassets */; };
 		31D192B92925DB0500CD869E /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D192B82925DB0500CD869E /* RepoCell.swift */; };
 		31D192BB2925F1EC00CD869E /* RepoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D192BA2925F1EC00CD869E /* RepoHeader.swift */; };
+		31D192BD2925F3E800CD869E /* RepoCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D192BC2925F3E800CD869E /* RepoCellVM.swift */; };
+		31D192BF2925FC5700CD869E /* Dictionary-Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D192BE2925FC5700CD869E /* Dictionary-Ext.swift */; };
+		31E9608B292694C1008DCFB3 /* AvatarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9608A292694C1008DCFB3 /* AvatarService.swift */; };
+		31E9608E2926B3E3008DCFB3 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 31E9608D2926B3E3008DCFB3 /* AlamofireImage */; };
+		31E960902926C93E008DCFB3 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9608F2926C93E008DCFB3 /* HostingController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +45,11 @@
 		31D192B42925CFAB00CD869E /* Colors.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Colors.xcassets; sourceTree = "<group>"; };
 		31D192B82925DB0500CD869E /* RepoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		31D192BA2925F1EC00CD869E /* RepoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoHeader.swift; sourceTree = "<group>"; };
+		31D192BC2925F3E800CD869E /* RepoCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellVM.swift; sourceTree = "<group>"; };
+		31D192BE2925FC5700CD869E /* Dictionary-Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary-Ext.swift"; sourceTree = "<group>"; };
+		31E9608A292694C1008DCFB3 /* AvatarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarService.swift; sourceTree = "<group>"; };
+		31E9608F2926C93E008DCFB3 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
+		31E960912926D6B7008DCFB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -48,6 +58,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				311820D5292590DC0067A2C1 /* RealmSwift in Frameworks */,
+				31E9608E2926B3E3008DCFB3 /* AlamofireImage in Frameworks */,
 				311820D3292590DC0067A2C1 /* Realm in Frameworks */,
 				311820D8292591090067A2C1 /* Moya in Frameworks */,
 			);
@@ -75,6 +86,7 @@
 		311820BD29258F260067A2C1 /* RepoSaverHES */ = {
 			isa = PBXGroup;
 			children = (
+				31E960912926D6B7008DCFB3 /* Info.plist */,
 				311820BE29258F260067A2C1 /* RepoSaverHESApp.swift */,
 				311820CC29258F8B0067A2C1 /* Views */,
 				311820CD29258F970067A2C1 /* ViewModels */,
@@ -108,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				31CD064A2925A14800D0640D /* RepoVM.swift */,
+				31D192BC2925F3E800CD869E /* RepoCellVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -125,6 +138,8 @@
 		311820CF29258FA50067A2C1 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				31D192BE2925FC5700CD869E /* Dictionary-Ext.swift */,
+				31E9608F2926C93E008DCFB3 /* HostingController.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -134,6 +149,7 @@
 			children = (
 				31CD06462925A01300D0640D /* MoyaTarget.swift */,
 				31CD06482925A06300D0640D /* RepoService.swift */,
+				31E9608A292694C1008DCFB3 /* AvatarService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -176,6 +192,7 @@
 				311820D2292590DC0067A2C1 /* Realm */,
 				311820D4292590DC0067A2C1 /* RealmSwift */,
 				311820D7292591090067A2C1 /* Moya */,
+				31E9608D2926B3E3008DCFB3 /* AlamofireImage */,
 			);
 			productName = RepoSaverHES;
 			productReference = 311820BB29258F260067A2C1 /* RepoSaverHES.app */;
@@ -208,6 +225,7 @@
 			packageReferences = (
 				311820D1292590DC0067A2C1 /* XCRemoteSwiftPackageReference "realm-cocoa" */,
 				311820D6292591090067A2C1 /* XCRemoteSwiftPackageReference "Moya" */,
+				31E9608C2926B3E3008DCFB3 /* XCRemoteSwiftPackageReference "AlamofireImage" */,
 			);
 			productRefGroup = 311820BC29258F260067A2C1 /* Products */;
 			projectDirPath = "";
@@ -237,13 +255,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				31CD064B2925A14800D0640D /* RepoVM.swift in Sources */,
+				31E960902926C93E008DCFB3 /* HostingController.swift in Sources */,
 				31CD06452925935A00D0640D /* Favorite.swift in Sources */,
+				31D192BD2925F3E800CD869E /* RepoCellVM.swift in Sources */,
+				31D192BF2925FC5700CD869E /* Dictionary-Ext.swift in Sources */,
 				31D192BB2925F1EC00CD869E /* RepoHeader.swift in Sources */,
 				31CD06412925927700D0640D /* Repo.swift in Sources */,
 				31CD06472925A01300D0640D /* MoyaTarget.swift in Sources */,
 				31CD06432925931B00D0640D /* Owner.swift in Sources */,
 				31D192B92925DB0500CD869E /* RepoCell.swift in Sources */,
 				311820C129258F260067A2C1 /* RepoView.swift in Sources */,
+				31E9608B292694C1008DCFB3 /* AvatarService.swift in Sources */,
 				311820BF29258F260067A2C1 /* RepoSaverHESApp.swift in Sources */,
 				31CD06492925A06300D0640D /* RepoService.swift in Sources */,
 			);
@@ -379,10 +401,12 @@
 				DEVELOPMENT_TEAM = 7HSG94ANS5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RepoSaverHES/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -409,10 +433,12 @@
 				DEVELOPMENT_TEAM = 7HSG94ANS5;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = RepoSaverHES/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleDarkContent;
+				INFOPLIST_KEY_UIStatusBarHidden = NO;
+				INFOPLIST_KEY_UIStatusBarStyle = UIStatusBarStyleLightContent;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -468,6 +494,14 @@
 				kind = branch;
 			};
 		};
+		31E9608C2926B3E3008DCFB3 /* XCRemoteSwiftPackageReference "AlamofireImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/AlamofireImage.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -485,6 +519,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 311820D6292591090067A2C1 /* XCRemoteSwiftPackageReference "Moya" */;
 			productName = Moya;
+		};
+		31E9608D2926B3E3008DCFB3 /* AlamofireImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 31E9608C2926B3E3008DCFB3 /* XCRemoteSwiftPackageReference "AlamofireImage" */;
+			productName = AlamofireImage;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};

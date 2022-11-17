@@ -12,20 +12,22 @@ struct RepoView: View {
     @StateObject private var vm = RepoVM()
     
     var body: some View {
-        GeometryReader { proxy in
-            VStack(spacing: 0) {
-                RepoHeader(proxy: proxy)
-                ScrollView {
-                    VStack(spacing: 0) {
-//                        ForEach(vm.repos) { repo in
-//                            RepoCell(repo: repo)
-//                        }
-                        Text("Desc")
-                        .padding()
+        NavigationView {
+            GeometryReader { proxy in
+                VStack(spacing: 0) {
+                    RepoHeader(proxy: proxy)
+                    ScrollView {
+                        VStack(spacing: 0) {
+                            //                        ForEach(vm.repos) { repo in
+                            RepoCell(repo: Repo.example)
+                            boarder
+                            RepoCell(repo: Repo.example)
+                        }
+                        //                    }
                     }
                 }
-            }
                 .ignoresSafeArea()
+            }
         }
     }
 }
@@ -33,9 +35,15 @@ struct RepoView: View {
 struct RepoView_Previews: PreviewProvider {
     static var previews: some View {
         RepoView()
-        //            .preferredColorScheme(.dark)
     }
 }
 
 extension RepoView {
+    private var boarder: some View {
+        Rectangle()
+            .frame(height: 1)
+            .ignoresSafeArea()
+            .frame(maxWidth: .infinity)
+            .foregroundColor(.secondary.opacity(0.3))
+    }
 }
