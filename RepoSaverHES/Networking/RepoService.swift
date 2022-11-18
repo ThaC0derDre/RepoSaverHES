@@ -65,7 +65,6 @@ extension RepoService: TargetType {
     
     
     var headers: [String : String]? {
-         print("\(baseURL)\(path) ")
         return ["Authorization": "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"]
     }
 }

@@ -12,35 +12,17 @@ import AlamofireImage
 
 class RepoCellVM: ObservableObject {
     
-    @Published var avatarImage: UIImage? = nil
     @Published var language: String?
     
     let moya = MoyaTarget.instance
     
-    var avatarUrl: String
     var languageUrl: String
     
+    
     init(repo: Repo) {
-        self.avatarUrl = repo.owner.avatarUrl
         self.languageUrl = repo.language ?? ""
-        getImages()
         getLanguage()
     }
-    
-        func getImages() {
-            let headers: HTTPHeaders = [ "Authorization": "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"]
-            AF
-                .request(avatarUrl,headers: headers)
-                .validate()
-                .responseImage { [weak self] response in
-                    switch response.result {
-                    case .success(let returnedImage):
-                        self?.avatarImage = returnedImage
-                    case .failure(let error):
-                        print("Error", error)
-                    }
-                }
-        }
     
     
     func getLanguage() {

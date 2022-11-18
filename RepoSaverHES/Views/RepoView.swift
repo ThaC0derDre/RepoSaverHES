@@ -11,30 +11,28 @@ struct RepoView: View {
     
     @StateObject private var vm = RepoVM()
     @State var searching = false
+    
     var body: some View {
-        NavigationView {
             GeometryReader { proxy in
                 VStack(spacing: 0) {
                     RepoHeader(proxy: proxy)
-                    RepoSearchBar(textString: $vm.searchFor, searching: $searching, proxy: proxy)
-                    ScrollView {
-                        LazyVStack(spacing: 0) {
-                            ForEach(vm.repos) { repo in
-                                RepoCell(repo: repo)
-                                boarder
-                                //                            RepoCell(repo: Repo.example)
-                            }
+                    RepoSearchBar(textString: $vm.searchFor,
+                                  searching: $searching,
+                                  proxy: proxy)
+                        if vm.isLoading {
+                            loadingScreen
+                        } else {
+                            listOfRepos
                         }
-                    }
                 }
-                .onChange(of: searching, perform: { _ in
-                    vm.searchRepo()
-                })
                 .ignoresSafeArea()
             }
-        }
+            .onChange(of: searching) { _ in
+                vm.searchRepo()
+            }
     }
 }
+
 
 struct RepoView_Previews: PreviewProvider {
     static var previews: some View {
@@ -42,12 +40,24 @@ struct RepoView_Previews: PreviewProvider {
     }
 }
 
+
 extension RepoView {
-    private var boarder: some View {
-        Rectangle()
-            .frame(height: 1)
-            .ignoresSafeArea()
-            .frame(maxWidth: .infinity)
-            .foregroundColor(.secondary.opacity(0.3))
+    
+    private var loadingScreen: some View {
+        ProgressView()
+            .frame(width: 90, height: 90)
+            .padding()
+    }
+    
+    
+    private var listOfRepos: some View {
+        ScrollView {
+            LazyVStack(spacing: 0) {
+                ForEach(vm.repos) { repo in
+                    RepoCell(repo: repo)
+                }
+            }
+        }
     }
 }
+
