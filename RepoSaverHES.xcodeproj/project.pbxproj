@@ -14,6 +14,7 @@
 		311820D3292590DC0067A2C1 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 311820D2292590DC0067A2C1 /* Realm */; };
 		311820D5292590DC0067A2C1 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 311820D4292590DC0067A2C1 /* RealmSwift */; };
 		311820D8292591090067A2C1 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 311820D7292591090067A2C1 /* Moya */; };
+		3132AA0129280A22006DE243 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132AA0029280A22006DE243 /* Item.swift */; };
 		31CD06412925927700D0640D /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06402925927700D0640D /* Repo.swift */; };
 		31CD06432925931B00D0640D /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06422925931B00D0640D /* Owner.swift */; };
 		31CD06452925935A00D0640D /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06442925935A00D0640D /* Favorite.swift */; };
@@ -26,7 +27,6 @@
 		31D192BD2925F3E800CD869E /* RepoCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D192BC2925F3E800CD869E /* RepoCellVM.swift */; };
 		31D192BF2925FC5700CD869E /* Dictionary-Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D192BE2925FC5700CD869E /* Dictionary-Ext.swift */; };
 		31DA8E3329270A3D0055098D /* RepoSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA8E3229270A3D0055098D /* RepoSearchBar.swift */; };
-		31E9608B292694C1008DCFB3 /* AvatarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9608A292694C1008DCFB3 /* AvatarService.swift */; };
 		31E9608E2926B3E3008DCFB3 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 31E9608D2926B3E3008DCFB3 /* AlamofireImage */; };
 		31E960902926C93E008DCFB3 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9608F2926C93E008DCFB3 /* HostingController.swift */; };
 /* End PBXBuildFile section */
@@ -37,6 +37,8 @@
 		311820C029258F260067A2C1 /* RepoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoView.swift; sourceTree = "<group>"; };
 		311820C229258F270067A2C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		311820C529258F270067A2C1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3132A9FF2927F40D006DE243 /* ToDo.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ToDo.md; sourceTree = "<group>"; };
+		3132AA0029280A22006DE243 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		31CD06402925927700D0640D /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		31CD06422925931B00D0640D /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		31CD06442925935A00D0640D /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
@@ -49,7 +51,6 @@
 		31D192BC2925F3E800CD869E /* RepoCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellVM.swift; sourceTree = "<group>"; };
 		31D192BE2925FC5700CD869E /* Dictionary-Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary-Ext.swift"; sourceTree = "<group>"; };
 		31DA8E3229270A3D0055098D /* RepoSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearchBar.swift; sourceTree = "<group>"; };
-		31E9608A292694C1008DCFB3 /* AvatarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarService.swift; sourceTree = "<group>"; };
 		31E9608F2926C93E008DCFB3 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		31E960912926D6B7008DCFB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -72,6 +73,7 @@
 		311820B229258F260067A2C1 = {
 			isa = PBXGroup;
 			children = (
+				3132A9FF2927F40D006DE243 /* ToDo.md */,
 				311820BD29258F260067A2C1 /* RepoSaverHES */,
 				311820BC29258F260067A2C1 /* Products */,
 			);
@@ -130,6 +132,7 @@
 		311820CE29258F9D0067A2C1 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				3132AA0029280A22006DE243 /* Item.swift */,
 				31CD06402925927700D0640D /* Repo.swift */,
 				31CD06422925931B00D0640D /* Owner.swift */,
 				31CD06442925935A00D0640D /* Favorite.swift */,
@@ -151,7 +154,6 @@
 			children = (
 				31CD06462925A01300D0640D /* MoyaTarget.swift */,
 				31CD06482925A06300D0640D /* RepoService.swift */,
-				31E9608A292694C1008DCFB3 /* AvatarService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -261,6 +263,7 @@
 				31E960902926C93E008DCFB3 /* HostingController.swift in Sources */,
 				31CD06452925935A00D0640D /* Favorite.swift in Sources */,
 				31D192BD2925F3E800CD869E /* RepoCellVM.swift in Sources */,
+				3132AA0129280A22006DE243 /* Item.swift in Sources */,
 				31D192BF2925FC5700CD869E /* Dictionary-Ext.swift in Sources */,
 				31D192BB2925F1EC00CD869E /* RepoHeader.swift in Sources */,
 				31CD06412925927700D0640D /* Repo.swift in Sources */,
@@ -269,7 +272,6 @@
 				31DA8E3329270A3D0055098D /* RepoSearchBar.swift in Sources */,
 				31D192B92925DB0500CD869E /* RepoCell.swift in Sources */,
 				311820C129258F260067A2C1 /* RepoView.swift in Sources */,
-				31E9608B292694C1008DCFB3 /* AvatarService.swift in Sources */,
 				311820BF29258F260067A2C1 /* RepoSaverHESApp.swift in Sources */,
 				31CD06492925A06300D0640D /* RepoService.swift in Sources */,
 			);

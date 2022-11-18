@@ -48,6 +48,8 @@ struct RepoCell: View {
                     .padding(.vertical, 5)
                 }
                 
+                Spacer()
+                
                 Image(systemName: "heart")
                     .resizable()
                     .frame(width: 22, height: 20)

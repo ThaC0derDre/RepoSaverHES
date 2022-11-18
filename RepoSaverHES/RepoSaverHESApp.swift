@@ -12,6 +12,7 @@ struct RepoSaverHESApp: App {
     var body: some Scene {
         WindowGroup {
             RepoView()
+                .preferredColorScheme(.light)
         }
     }
 }

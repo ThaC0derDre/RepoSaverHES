@@ -10,23 +10,26 @@ import SwiftUI
 struct RepoView: View {
     
     @StateObject private var vm = RepoVM()
-    
+    @State var searching = false
     var body: some View {
         NavigationView {
             GeometryReader { proxy in
                 VStack(spacing: 0) {
                     RepoHeader(proxy: proxy)
-                    RepoSearchBar(proxy: proxy)
+                    RepoSearchBar(textString: $vm.searchFor, searching: $searching, proxy: proxy)
                     ScrollView {
-                        VStack(spacing: 0) {
-                            //                        ForEach(vm.repos) { repo in
-                            RepoCell(repo: Repo.example)
-                            boarder
-                            RepoCell(repo: Repo.example)
+                        LazyVStack(spacing: 0) {
+                            ForEach(vm.repos) { repo in
+                                RepoCell(repo: repo)
+                                boarder
+                                //                            RepoCell(repo: Repo.example)
+                            }
                         }
-                        //                    }
                     }
                 }
+                .onChange(of: searching, perform: { _ in
+                    vm.searchRepo()
+                })
                 .ignoresSafeArea()
             }
         }

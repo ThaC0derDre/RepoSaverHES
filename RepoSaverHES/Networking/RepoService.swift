@@ -12,64 +12,62 @@ enum RepoService {
     case showRepos
     case selectedRepo(url: String)
     case grabLanguage(url: String)
-    case grabAvatarImage(url: String)
+    case searchForRepo(query: String)
 }
 
+// https://api.github.com/search/repositories?q=swiftin:name,description
+
 extension RepoService: TargetType {
-    var baseURL: URL {
-        switch self {
-        case .showRepos, .selectedRepo , .grabLanguage:
-            return URL(string: "https://api.github.com")!
-        case .grabAvatarImage:
-            return URL(string: "https://avatars.githubusercontent.com/u/")!
-        }
-        
-    }
+    
+    var baseURL: URL { URL(string: "https://api.github.com")! }
     
     var path: String {
         switch self {
         case .showRepos:
             return "/repositories"
+            
         case .selectedRepo(let url),
-             .grabLanguage(let url):
+                .grabLanguage(let url):
             let splitUrl = url.components(separatedBy: ".com")
             return splitUrl.last!
             
-        case .grabAvatarImage(let url):
-            let splitUrl = url.components(separatedBy: "u/")
-            print(splitUrl)
-            return splitUrl.last!
+        case .searchForRepo:
+            return "/search/repositories"
         }
     }
+    
     
     var method: Moya.Method {
         switch self {
         case .showRepos,
              .selectedRepo,
              .grabLanguage,
-             .grabAvatarImage:
+             .searchForRepo:
             return .get
         }
     }
     
-    var sampleData: Data {
-        return Data()
-    }
+    
+    var sampleData: Data { Data() }
+    
     
     var task: Moya.Task {
         switch self {
-        case .showRepos,
-             .selectedRepo,
-             .grabLanguage,
-             .grabAvatarImage:
+        case .searchForRepo(let query):
+            return .requestParameters(
+                parameters: ["q": query,
+                             "in":"name,description"],
+                encoding: URLEncoding.default)
+        default:
             return .requestPlain
         }
     }
     
+    
     var headers: [String : String]? {
+         print("\(baseURL)\(path) ")
         return ["Authorization": "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"]
     }
-    
 }
 
 // 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
