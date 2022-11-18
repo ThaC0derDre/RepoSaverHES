@@ -25,6 +25,7 @@
 		31D192BB2925F1EC00CD869E /* RepoHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D192BA2925F1EC00CD869E /* RepoHeader.swift */; };
 		31D192BD2925F3E800CD869E /* RepoCellVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D192BC2925F3E800CD869E /* RepoCellVM.swift */; };
 		31D192BF2925FC5700CD869E /* Dictionary-Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31D192BE2925FC5700CD869E /* Dictionary-Ext.swift */; };
+		31DA8E3329270A3D0055098D /* RepoSearchBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31DA8E3229270A3D0055098D /* RepoSearchBar.swift */; };
 		31E9608B292694C1008DCFB3 /* AvatarService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9608A292694C1008DCFB3 /* AvatarService.swift */; };
 		31E9608E2926B3E3008DCFB3 /* AlamofireImage in Frameworks */ = {isa = PBXBuildFile; productRef = 31E9608D2926B3E3008DCFB3 /* AlamofireImage */; };
 		31E960902926C93E008DCFB3 /* HostingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31E9608F2926C93E008DCFB3 /* HostingController.swift */; };
@@ -47,6 +48,7 @@
 		31D192BA2925F1EC00CD869E /* RepoHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoHeader.swift; sourceTree = "<group>"; };
 		31D192BC2925F3E800CD869E /* RepoCellVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoCellVM.swift; sourceTree = "<group>"; };
 		31D192BE2925FC5700CD869E /* Dictionary-Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Dictionary-Ext.swift"; sourceTree = "<group>"; };
+		31DA8E3229270A3D0055098D /* RepoSearchBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoSearchBar.swift; sourceTree = "<group>"; };
 		31E9608A292694C1008DCFB3 /* AvatarService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarService.swift; sourceTree = "<group>"; };
 		31E9608F2926C93E008DCFB3 /* HostingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HostingController.swift; sourceTree = "<group>"; };
 		31E960912926D6B7008DCFB3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				31D192B82925DB0500CD869E /* RepoCell.swift */,
 				31D192BA2925F1EC00CD869E /* RepoHeader.swift */,
+				31DA8E3229270A3D0055098D /* RepoSearchBar.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 				31CD06412925927700D0640D /* Repo.swift in Sources */,
 				31CD06472925A01300D0640D /* MoyaTarget.swift in Sources */,
 				31CD06432925931B00D0640D /* Owner.swift in Sources */,
+				31DA8E3329270A3D0055098D /* RepoSearchBar.swift in Sources */,
 				31D192B92925DB0500CD869E /* RepoCell.swift in Sources */,
 				311820C129258F260067A2C1 /* RepoView.swift in Sources */,
 				31E9608B292694C1008DCFB3 /* AvatarService.swift in Sources */,

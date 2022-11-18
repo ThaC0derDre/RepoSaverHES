@@ -16,6 +16,7 @@ struct RepoView: View {
             GeometryReader { proxy in
                 VStack(spacing: 0) {
                     RepoHeader(proxy: proxy)
+                    RepoSearchBar(proxy: proxy)
                     ScrollView {
                         VStack(spacing: 0) {
                             //                        ForEach(vm.repos) { repo in
