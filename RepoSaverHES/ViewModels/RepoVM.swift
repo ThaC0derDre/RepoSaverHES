@@ -16,7 +16,7 @@ class RepoVM: ObservableObject {
     let moya = MoyaTarget.instance
     
     init(){
-        downloadRepos()
+//        downloadRepos()
         searchRepo()
     }
     

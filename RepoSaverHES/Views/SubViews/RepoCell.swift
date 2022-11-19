@@ -33,7 +33,7 @@ struct RepoCell: View {
 
 struct RepoCell_Previews: PreviewProvider {
     static var previews: some View {
-        RepoView()
+        RepoListView()
     }
 }
 

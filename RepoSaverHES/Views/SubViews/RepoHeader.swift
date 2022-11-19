@@ -10,6 +10,7 @@ import SwiftUI
 struct RepoHeader: View {
     
     let proxy: GeometryProxy
+    @Binding var showFavorites: Bool
     
     var body: some View {
         ZStack{
@@ -24,6 +25,12 @@ struct RepoHeader: View {
                     .font(.title3)
                     .fontWeight(.bold)
                     .foregroundColor(.white)
+                    .padding(21)
+                    .onTapGesture {
+                        if showFavorites {
+                            showFavorites.toggle()
+                        }
+                    }
                 
                 Spacer()
                 
@@ -31,15 +38,21 @@ struct RepoHeader: View {
                     .resizable()
                     .frame(width: 22, height: 20)
                     .foregroundColor(.white)
-                    
+                    .padding(21)
+                    .onTapGesture {
+                        if !showFavorites {
+                            showFavorites.toggle()
+                        }
+                    }
             }
-            .padding([.top, .horizontal], 25)
+            .padding(.top, 25)
+            .padding(.trailing, 5)
         }
     }
 }
 
 struct RepoHeader_Previews: PreviewProvider {
     static var previews: some View {
-        RepoView()
+        RepoListView()
     }
 }

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-class HostingController: UIHostingController<RepoView> {
+class HostingController: UIHostingController<RepoListView> {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }

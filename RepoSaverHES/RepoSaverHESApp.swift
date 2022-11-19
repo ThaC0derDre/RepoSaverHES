@@ -11,7 +11,7 @@ import SwiftUI
 struct RepoSaverHESApp: App {
     var body: some Scene {
         WindowGroup {
-            RepoView()
+            RepoListView()
                 .preferredColorScheme(.light)
         }
     }

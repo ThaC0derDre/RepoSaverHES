@@ -22,7 +22,7 @@ struct RepoSearchBar: View {
             TextField("Search by repo or description...", text: $textString)
                 .autocorrectionDisabled()
                 .onSubmit {
-                    searching .toggle()
+                    searching.toggle()
                 }
         }
         .frame(height: proxy.size.height / 30)
@@ -33,6 +33,6 @@ struct RepoSearchBar: View {
 
 struct RepoSearchBar_Previews: PreviewProvider {
     static var previews: some View {
-        RepoView()
+        RepoListView()
     }
 }
