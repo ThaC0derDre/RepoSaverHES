@@ -13,39 +13,51 @@ struct RepoHeader: View {
     
     var body: some View {
         ZStack{
-            Rectangle()
-                .frame(height: proxy.size.height / 8)
-                .frame(maxWidth: .infinity)
-                .foregroundColor(Color("AppRed"))
-                .ignoresSafeArea()
+            redBackground
             
-            HStack {
-                    Text("Repos")
-                        .font(.title3)
-                        .fontWeight(.bold)
-                        .foregroundColor(.white)
-                        .padding(21)
-                        .onTapGesture {
-                            if showFavorites {
-                                showFavorites.toggle()
-                            }
-                        }
-                
-                Spacer()
-                
-                Image(systemName: "heart.fill")
-                    .resizable()
-                    .frame(width: 22, height: 20)
+            toolBars
+        }
+    }
+}
+
+
+extension RepoHeader {
+    private var redBackground: some View {
+        Rectangle()
+            .frame(height: proxy.size.height / 8)
+            .frame(maxWidth: .infinity)
+            .foregroundColor(.appRed)
+            .ignoresSafeArea()
+    }
+    
+    
+    private var toolBars: some View {
+        HStack {
+                Text("Repos")
+                    .font(.title3)
+                    .fontWeight(.bold)
                     .foregroundColor(.white)
                     .padding(21)
                     .onTapGesture {
-                        if !showFavorites {
+                        if showFavorites {
                             showFavorites.toggle()
                         }
                     }
-            }
-            .padding(.top, 25)
-            .padding(.trailing, 5)
+            
+            Spacer()
+            
+            Image(systemName: "heart.fill")
+                .resizable()
+                .frame(width: 22, height: 20)
+                .foregroundColor(.white)
+                .padding(21)
+                .onTapGesture {
+                    if !showFavorites {
+                        showFavorites.toggle()
+                    }
+                }
         }
+        .padding(.top, 25)
+        .padding(.trailing, 5)
     }
 }

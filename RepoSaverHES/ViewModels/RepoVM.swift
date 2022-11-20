@@ -9,10 +9,10 @@ import Foundation
 import Moya
 
 class RepoVM: ObservableObject {
-    
     @Published var repos     = [Repo]()
     @Published var searchFor = ""
     @Published var isLoading = false
+    
     let moya     = MoyaTarget.instance
     let mananger = CacheManager.instance
     

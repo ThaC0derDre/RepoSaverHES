@@ -32,9 +32,3 @@ struct RepoSearchBar: View {
         .background(Color(.tertiarySystemGroupedBackground))
     }
 }
-
-struct RepoSearchBar_Previews: PreviewProvider {
-    static var previews: some View {
-        RepoListView()
-    }
-}

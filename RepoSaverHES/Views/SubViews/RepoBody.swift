@@ -15,32 +15,44 @@ struct RepoBody: View {
     
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
-            Text(name)
-                .fontWeight(.heavy)
-                .minimumScaleFactor(0.8)
-                .lineLimit(1)
+            repoName
             
-            Text(desc ?? "Can't describe")
-                .foregroundColor(.secondary)
-                .lineLimit(4)
+            repoDescription
             
-            HStack {
-                Text("Language:")
-                    .foregroundColor(.secondary)
-                
-                Text(lang ?? "N/A")
-                    .foregroundColor(.white)
-                    .padding(3)
-                    .background(Color("AppRed"))
-                    .cornerRadius(5)
-            }
-            .padding(.vertical, 5)
+            language
+            
         }
     }
 }
 
-//struct RepoBody_Previews: PreviewProvider {
-//    static var previews: some View {
-//        RepoBody()
-//    }
-//}
+
+extension RepoBody {
+    private var repoName: some View {
+        Text(name)
+            .fontWeight(.heavy)
+            .minimumScaleFactor(0.8)
+            .lineLimit(1)
+    }
+    
+    
+    private var repoDescription: some View {
+        Text(desc ?? "Can't describe it..")
+            .foregroundColor(.secondary)
+            .lineLimit(4)
+    }
+    
+    
+    private var language: some View {
+        HStack {
+            Text("Language:")
+                .foregroundColor(.secondary)
+            
+            Text(lang ?? "N/A")
+                .foregroundColor(.white)
+                .padding(3)
+                .background(.appRed)
+                .cornerRadius(5)
+        }
+        .padding(.vertical, 5)
+    }
+}

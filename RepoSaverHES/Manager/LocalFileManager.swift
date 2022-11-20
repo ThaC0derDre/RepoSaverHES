@@ -8,16 +8,15 @@
 import UIKit
 
 class LocalFileManager {
-    
-    static let instance = LocalFileManager()
+    static let instance    = LocalFileManager()
     private let folderName = "RepoSaver_Images"
     
     private init() {
         createFolderIfNeeded()
     }
     
+    
     func createFolderIfNeeded() {
-        
         guard
             let path = FileManager
                 .default
@@ -29,12 +28,10 @@ class LocalFileManager {
         if !FileManager.default.fileExists(atPath: path) {
             do {
                 try FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true)
-                print("Success creating folder")
             } catch let error {
                 print("Error creating path", error)
             }
         }
-        
     }
     
     
@@ -43,13 +40,12 @@ class LocalFileManager {
             let data = image.pngData(),
             let path = getPathForImage(name: name)
         else {
-            print("Failed getting data from Image. Try to change type.")
+            print("Failed getting data from Image.")
             return
         }
         
         do {
             try data.write(to: path)
-            print("Success saving image!!!")
         } catch let error {
             print("Error saving Image:", error)
         }
@@ -77,7 +73,6 @@ class LocalFileManager {
         
         do{
             try FileManager.default.removeItem(atPath: path)
-            print("Successfully deleted Image")
         } catch let error {
             print("Error deleting image", error)
         }
@@ -85,7 +80,6 @@ class LocalFileManager {
     
     
     func getPathForImage(name: String) -> URL? {
-        
         guard let path = FileManager
             .default
             .urls(for: .cachesDirectory, in: .userDomainMask)
@@ -97,5 +91,4 @@ class LocalFileManager {
         }
         return path
     }
-    
 }

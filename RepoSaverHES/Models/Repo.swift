@@ -21,11 +21,10 @@ struct Repo: Codable, Identifiable {
     let owner: Owner
     let description: String?
     let language: String?
-    
 }
 
+
 extension Repo {
-    
     static let example = Repo(id: 22, fullName: "caged/microsis", owner: Owner.example, description: "Treat an ActiveRecord model as a file attachment, storing its patch, size, content type, etc.", language: "https://api.github.com/repos/technoweenie/attachment_fu/languages")
     
 }

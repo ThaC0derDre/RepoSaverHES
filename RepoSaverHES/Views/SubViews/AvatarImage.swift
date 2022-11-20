@@ -6,10 +6,10 @@
 //
 
 import SwiftUI
+
 struct AvatarImage: View {
     
     let avatarImage: UIImage?
-    
     
     var body: some View {
         VStack {
@@ -27,6 +27,7 @@ struct AvatarImage: View {
         }
     }
 }
+
 
 extension AvatarImage {
     private var placeHolderImage: some View {

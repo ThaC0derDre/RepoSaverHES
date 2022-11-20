@@ -50,7 +50,6 @@ struct RepoListView_Previews: PreviewProvider {
 
 
 extension RepoListView {
-    
     private var loadingScreen: some View {
         ProgressView()
             .frame(width: 90, height: 90)

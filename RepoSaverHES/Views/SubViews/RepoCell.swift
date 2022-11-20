@@ -13,6 +13,7 @@ struct RepoCell: View {
     @ObservedResults(Favorite.self) var favorite
     
     let repo: Repo
+    
     var body: some View {
         VStack{
             HStack {
@@ -21,12 +22,14 @@ struct RepoCell: View {
                 RepoBody(name: repo.fullName,
                          desc: repo.description,
                          lang: vm.language)
+                
                 Spacer()
                 heart
             }
-            .padding(10)
+            .padding([.horizontal, .top], 10)
             
             CustomBorder()
+                .padding([.top, .bottom], 10)
         }
     }
     init(repo: Repo) {
@@ -35,45 +38,43 @@ struct RepoCell: View {
     }
 }
 
-struct RepoCell_Previews: PreviewProvider {
-    static var previews: some View {
-        RepoListView()
-    }
-}
 
 extension RepoCell {
-    
-    
     private var heart: some View {
         Button {
             if isLoved() {
                 $favorite.remove(unlovedFavorite())
                 vm.deleteImage()
             }else {
-                
                 vm.saveImage()
-                let newFav = Favorite(avatar: repo.owner.avatarUrl.pathOnly,
-                                      name: repo.fullName,
-                                      descrp: repo.description ?? "",
-                                      language: vm.language ?? "None")
-                $favorite.append(newFav)
+                addToFavorites()
             }
         }label: {
             Image(systemName: isLoved() ? "heart.fill" : "heart")
                 .resizable()
                 .frame(width: 22, height: 20)
-                .foregroundColor(.black)
+                .foregroundColor(isLoved() ? .appRed : .black)
                 .padding(.horizontal, 15)
         }
         
     }
     
+    func addToFavorites() {
+        let newFav = Favorite(avatar: repo.owner.avatarUrl.pathOnly,
+                              name: repo.fullName,
+                              descrp: repo.description ?? "",
+                              language: vm.language ?? "None")
+        $favorite.append(newFav)
+    }
+    
+    
     func isLoved() -> Bool {
         favorite.contains { $0.name == repo.fullName  }
     }
- 
+    
+    
     func unlovedFavorite() -> Results<Favorite>.Element {
-         favorite.filter { $0.name == repo.fullName }.first!
+        favorite.filter { $0.name == repo.fullName }.first!
     }
     
 }

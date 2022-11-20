@@ -15,11 +15,9 @@ struct Owner: Codable, Identifiable {
     
     let id: Int
     let avatarUrl: String
-    
 }
 
 
 extension Owner {
-    
     static let example = Owner(id: 25, avatarUrl: "https://avatars.githubusercontent.com/u/25?v=4")
 }

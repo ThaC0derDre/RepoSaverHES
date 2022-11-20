@@ -5,13 +5,13 @@
 //  Created by Andres Gutierrez on 11/16/22.
 //
 
-import UIKit
 import RealmSwift
+import UIKit
 
 class Favorite: Object, ObjectKeyIdentifiable {
     
     @Persisted(primaryKey: true) var id: ObjectId
-    @Persisted var avatar: String // Need this to be image
+    @Persisted var avatar: String
     @Persisted var name: String
     @Persisted var descrp: String
     @Persisted var language: String
@@ -23,5 +23,4 @@ class Favorite: Object, ObjectKeyIdentifiable {
         self.descrp = descrp
         self.language = language
     }
-    
 }

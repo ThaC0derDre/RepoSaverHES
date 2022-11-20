@@ -12,7 +12,9 @@ extension Dictionary {
         var topLanguage = ""
         
         guard let myDict = self as? [String:Int] else { return "" }
+        
         let mySortedDict = myDict.sorted { $0.1 > $1.1 }
+        
         topLanguage = mySortedDict.first?.key ?? "Unknown"
         
         return topLanguage

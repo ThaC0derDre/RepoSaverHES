@@ -5,13 +5,12 @@
 //  Created by Andres Gutierrez on 11/16/22.
 //
 
-import Moya
-import UIKit
-import Alamofire
 import AlamofireImage
+import Alamofire
+import UIKit
+import Moya
 
 class RepoCellVM: ObservableObject {
-    
     @Published var language: String?
     @Published var avatarImage: UIImage? = nil
     @Published var isLoading = false
@@ -27,28 +26,8 @@ class RepoCellVM: ObservableObject {
     init(repo: Repo) {
         self.languageUrl = repo.language ?? ""
         self.avatarUrl = repo.owner.avatarUrl
-        getLanguage()
         getImages()
-    }
-    
-    
-    func getLanguage() {
-        moya.provider.request(.grabLanguage(url: languageUrl)) { [weak self] result in
-            switch result {
-            case .failure(let error):
-                print("Error fetching Language:", error)
-            case .success(let response):
-                guard
-                    let self = self,
-                    let receivedLanguage = try? response.map([String: Int].self)
-                else {
-                    print("🔥 Failed to map language")
-                    return
-                }
-                
-                self.language = receivedLanguage.mostUsedLang()
-            }
-        }
+        getLanguage()
     }
     
     
@@ -84,21 +63,36 @@ class RepoCellVM: ObservableObject {
             }
     }
     
-    //MARK: - File Manager Storage Functions
     
+    func getLanguage() {
+        moya.provider.request(.grabLanguage(url: languageUrl)) { [weak self] result in
+            switch result {
+            case .failure(let error):
+                print("Error fetching Language:", error)
+            case .success(let response):
+                guard
+                    let self = self,
+                    let receivedLanguage = try? response.map([String: Int].self)
+                else {
+                    print("🔥 Failed to map language")
+                    return
+                }
+                
+                self.language = receivedLanguage.mostUsedLang()
+            }
+        }
+    }
+    
+    //MARK: - FileManager Storage Functions
     
     func saveImage() {
         if let avatarImage {
             fileManager.saveImage(image: avatarImage, name: avatarUrl.pathOnly)
         }
     }
-    //
-    //    func getImageFromStorage() {
-    //        avatarImage = manager.getImage(name: avatarUrl.pathOnly)
-    //    }
+    
     
     func deleteImage() {
         fileManager.deleteImage(name: avatarUrl.pathOnly)
     }
-    
 }
