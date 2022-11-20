@@ -16,8 +16,9 @@ class RepoCellVM: ObservableObject {
     @Published var avatarImage: UIImage? = nil
     @Published var isLoading = false
     
-    let manager = LocalFileManager.instance
-    let moya = MoyaTarget.instance
+    let fileManager  = LocalFileManager.instance
+    let cacheManager = CacheManager.instance
+    let moya         = MoyaTarget.instance
     
     var languageUrl: String
     var avatarUrl: String
@@ -52,38 +53,52 @@ class RepoCellVM: ObservableObject {
     
     
     func getImages() {
+        if let cachedImage = cacheManager.getImage(name: avatarUrl) {
+            avatarImage = cachedImage
+        } else {
+            downloadImages()
+        }
+    }
+    
+    
+    func downloadImages() {
         isLoading = true
+        
         let headers: HTTPHeaders = [ "Authorization": "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"]
         AF
             .request(avatarUrl,headers: headers)
             .validate()
             .responseImage { [weak self] response in
+                guard let self = self else { return }
+                
                 switch response.result {
                 case .success(let returnedImage):
-                    self?.avatarImage = returnedImage
-                    self?.isLoading = false
+                    self.avatarImage = returnedImage
+                    self.isLoading   = false
+                    self.cacheManager.addImage(image: returnedImage,
+                                               name: self.avatarUrl)
                 case .failure(let error):
                     print("Error", error)
-                    self?.isLoading = false
+                    self.isLoading = false
                 }
             }
     }
     
     //MARK: - File Manager Storage Functions
-
+    
     
     func saveImage() {
         if let avatarImage {
-            manager.saveImage(image: avatarImage, name: avatarUrl.pathOnly)
+            fileManager.saveImage(image: avatarImage, name: avatarUrl.pathOnly)
         }
     }
-//
-//    func getImageFromStorage() {
-//        avatarImage = manager.getImage(name: avatarUrl.pathOnly)
-//    }
-
+    //
+    //    func getImageFromStorage() {
+    //        avatarImage = manager.getImage(name: avatarUrl.pathOnly)
+    //    }
+    
     func deleteImage() {
-        manager.deleteImage(name: avatarUrl.pathOnly)
+        fileManager.deleteImage(name: avatarUrl.pathOnly)
     }
     
 }

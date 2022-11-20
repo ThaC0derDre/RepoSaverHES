@@ -12,7 +12,6 @@ struct AvatarImage: View {
     
     
     var body: some View {
-        
         VStack {
             if let avatarImage {
                 Image(uiImage: avatarImage)
@@ -21,8 +20,7 @@ struct AvatarImage: View {
                     .frame(width: 50, height: 50, alignment: .top)
                     .cornerRadius(50)
                     .padding(5)
-            }
-            else {
+            } else {
                 placeHolderImage
             }
             Spacer()

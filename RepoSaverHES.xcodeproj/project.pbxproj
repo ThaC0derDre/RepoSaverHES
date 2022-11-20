@@ -23,6 +23,7 @@
 		3132AA122929A49B006DE243 /* RepoBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132AA112929A49B006DE243 /* RepoBody.swift */; };
 		3132AA152929A894006DE243 /* CustomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132AA142929A894006DE243 /* CustomBorder.swift */; };
 		3132AA172929AB4B006DE243 /* FavoriteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132AA162929AB4B006DE243 /* FavoriteVM.swift */; };
+		3132AA192929DF59006DE243 /* CacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132AA182929DF59006DE243 /* CacheManager.swift */; };
 		31CD06412925927700D0640D /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06402925927700D0640D /* Repo.swift */; };
 		31CD06432925931B00D0640D /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06422925931B00D0640D /* Owner.swift */; };
 		31CD06452925935A00D0640D /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06442925935A00D0640D /* Favorite.swift */; };
@@ -55,6 +56,7 @@
 		3132AA112929A49B006DE243 /* RepoBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoBody.swift; sourceTree = "<group>"; };
 		3132AA142929A894006DE243 /* CustomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBorder.swift; sourceTree = "<group>"; };
 		3132AA162929AB4B006DE243 /* FavoriteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVM.swift; sourceTree = "<group>"; };
+		3132AA182929DF59006DE243 /* CacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CacheManager.swift; sourceTree = "<group>"; };
 		31CD06402925927700D0640D /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		31CD06422925931B00D0640D /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		31CD06442925935A00D0640D /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
@@ -183,6 +185,7 @@
 			isa = PBXGroup;
 			children = (
 				3132AA0D29294324006DE243 /* LocalFileManager.swift */,
+				3132AA182929DF59006DE243 /* CacheManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				31CD064B2925A14800D0640D /* RepoVM.swift in Sources */,
 				31E960902926C93E008DCFB3 /* HostingController.swift in Sources */,
 				3132AA122929A49B006DE243 /* RepoBody.swift in Sources */,
+				3132AA192929DF59006DE243 /* CacheManager.swift in Sources */,
 				31CD06452925935A00D0640D /* Favorite.swift in Sources */,
 				31D192BD2925F3E800CD869E /* RepoCellVM.swift in Sources */,
 				3132AA0129280A22006DE243 /* Item.swift in Sources */,
