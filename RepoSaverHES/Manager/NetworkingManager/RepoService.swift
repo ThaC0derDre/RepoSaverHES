@@ -65,6 +65,6 @@ extension RepoService: TargetType {
     
     
     var headers: [String : String]? {
-        return ["Authorization": "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"]
+        ["Authorization": OAuthToken.token.rawValue]
     }
 }

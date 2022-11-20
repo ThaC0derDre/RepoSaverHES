@@ -24,6 +24,8 @@ struct RepoListView: View {
                     
                     if vm.isLoading {
                         loadingScreen
+                    } else if vm.repos.isEmpty {
+                        EmptyStateView(animationName: Animations.error.rawValue)
                     } else {
                         listOfRepos
                     }
@@ -33,6 +35,9 @@ struct RepoListView: View {
             .onChange(of: searching) { _ in
                 vm.searchRepo()
             }
+            .alert("Oh no..", isPresented: $vm.showAlert, actions: {}, message: {
+                Text(vm.errorMessage?.rawValue ?? "An Error has occured. Please try again")
+            })
             .navigationDestination(isPresented: $showFavorites) {
                 FavoritesView()
                     .navigationBarBackButtonHidden()

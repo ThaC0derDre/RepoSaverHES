@@ -12,6 +12,8 @@ class RepoVM: ObservableObject {
     @Published var repos     = [Repo]()
     @Published var searchFor = ""
     @Published var isLoading = false
+    @Published var showAlert = false
+    @Published var errorMessage: ErrorMessage?
     
     let moya     = MoyaTarget.instance
     let mananger = CacheManager.instance
@@ -24,28 +26,36 @@ class RepoVM: ObservableObject {
     
     func searchRepo() {
         if searchFor.isEmpty { return }
+        if errorMessage != nil {
+            showAlert = true
+            return
+        }
+        
         isLoading = true
         moya.provider.request(.searchForRepo(query: searchFor)) { [weak self] result in
             switch result {
             case .success(let response):
-                self?.isLoading = false
                 guard
                     let self = self,
                     let receivedRepos = try? response.map(Item.self)
                 else {
-                    print("🔥 Failed to map searched Repo")
+                    self?.isLoading    = false
+                    self?.errorMessage = .fetchLimitExceeded
+                    self?.showAlert    = true
                     return
                 }
                 
                 self.repos = receivedRepos.items
                 
-            case .failure(let error):
-                self?.isLoading = false
-                print("Error searching Repo:", error)
+            case .failure(_):
+                self?.isLoading    = false
+                self?.errorMessage = .noNetwork
+                self?.showAlert    = true
             }
         }
         searchFor = ""
     }
+    
     
     func downloadRepos() {
         isLoading = true
@@ -54,26 +64,31 @@ class RepoVM: ObservableObject {
         moya.provider.request(.showRepos) { [weak self] result in
             switch result {
             case .success(let response):
-                self?.isLoading = false
-                guard
-                    let self = self,
-                    let receivedRepos = try? response.map([Repo].self)
-                else {
-                    let status = response.statusCode
-                    print(status)
-                    print("🔥 Failed to map Repo")
-                    if let jsonResponse = try? response.mapJSON() {
-                        print(jsonResponse)
+                if response.statusCode >= 200 && response.statusCode < 300 {
+                    guard
+                        let self = self,
+                        let receivedRepos = try? response.map([Repo].self)
+                    else {
+                        self?.errorOccurred(error: .fetchLimitExceeded)
+                        return
                     }
-                    return
+                    
+                    self.repos     = receivedRepos
+                    self.isLoading = false
+                } else {
+                    self?.errorOccurred(error: .invalidResponse)
+                    print("issue here")
                 }
                 
-                self.repos = receivedRepos
-                
-            case .failure(let error):
-                self?.isLoading = false
-                print("🔥 Error downloading Repos", error)
+            case .failure(_):
+                self?.errorOccurred(error: .noNetwork)
             }
         }
+    }
+    
+    func errorOccurred(error: ErrorMessage) {
+        isLoading     = false
+        errorMessage  = error
+        showAlert     = true
     }
 }

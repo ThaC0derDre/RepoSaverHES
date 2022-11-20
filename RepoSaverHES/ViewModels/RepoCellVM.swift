@@ -11,9 +11,10 @@ import UIKit
 import Moya
 
 class RepoCellVM: ObservableObject {
+    @Published var showAlert = false
     @Published var language: String?
     @Published var avatarImage: UIImage? = nil
-    @Published var isLoading = false
+    @Published var errorMessage: ErrorMessage?
     
     let fileManager  = LocalFileManager.instance
     let cacheManager = CacheManager.instance
@@ -39,26 +40,22 @@ class RepoCellVM: ObservableObject {
         }
     }
     
-    
+    //Compromised on learning: Downloading images with Moya 😅⏰
     func downloadImages() {
-        isLoading = true
-        
-        let headers: HTTPHeaders = [ "Authorization": "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"]
+        let headers: HTTPHeaders = [ "Authorization": OAuthToken.token.rawValue]
         AF
             .request(avatarUrl,headers: headers)
             .validate()
             .responseImage { [weak self] response in
                 guard let self = self else { return }
-                
                 switch response.result {
                 case .success(let returnedImage):
                     self.avatarImage = returnedImage
-                    self.isLoading   = false
                     self.cacheManager.addImage(image: returnedImage,
                                                name: self.avatarUrl)
                 case .failure(let error):
+                    self.errorOccurred(error: .invalidResponse)
                     print("Error", error)
-                    self.isLoading = false
                 }
             }
     }
@@ -67,21 +64,30 @@ class RepoCellVM: ObservableObject {
     func getLanguage() {
         moya.provider.request(.grabLanguage(url: languageUrl)) { [weak self] result in
             switch result {
-            case .failure(let error):
-                print("Error fetching Language:", error)
             case .success(let response):
                 guard
                     let self = self,
                     let receivedLanguage = try? response.map([String: Int].self)
                 else {
-                    print("🔥 Failed to map language")
+                    self?.errorOccurred(error: .fetchLimitExceeded)
                     return
                 }
                 
                 self.language = receivedLanguage.mostUsedLang()
+                
+                
+            case .failure(let error):
+                self?.errorOccurred(error: .noNetwork)
+                print("Error fetching Language:", error)
             }
         }
     }
+    
+        func errorOccurred(error: ErrorMessage) {
+            errorMessage  = error
+            showAlert     = true
+        }
+    
     
     //MARK: - FileManager Storage Functions
     

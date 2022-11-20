@@ -20,8 +20,11 @@ struct FavoritesView: View {
             VStack(spacing: 0) {
                 RepoHeader(showFavorites: $showFavorites, proxy: proxy)
                 
-                List {
-                    ForEach(favorite) { repo in
+                if favorite.isEmpty {
+                    emptyStateView(proxy)
+                } else {
+                    List {
+                        ForEach(favorite) { repo in
                             HStack {
                                 AvatarImage(avatarImage: vm.getImageFromStorage(avatarPath: repo.avatar))
                                 
@@ -30,10 +33,12 @@ struct FavoritesView: View {
                                          lang: repo.language)
                             }
                         }
-                    .onDelete(perform: $favorite.remove)
-                    .listRowSeparator(.hidden)
+                        .onDelete(perform: $favorite.remove)
+                        .listRowSeparator(.hidden)
+                        
+                    }
+                    .listStyle(.plain)
                 }
-                .listStyle(.plain)
             }
             .ignoresSafeArea()
             .onChange(of: showFavorites) { newValue in
@@ -49,3 +54,23 @@ struct FavoritesView_Previews: PreviewProvider {
     }
 }
 
+extension FavoritesView {
+    private func emptyStateView(_ proxy: GeometryProxy) -> some View {
+        VStack(spacing: 0) {
+            Text("NO FAVORITES ADDED..")
+                .font(.title)
+                .fontWeight(.bold)
+                .padding(.vertical, 10)
+            HStack {
+                Text("Press")
+                    .font(.title3)
+                Image(systemName: "heart")
+                Text("to save to your favorites!")
+                    .font(.title3)
+            }
+            EmptyStateView(animationName: Animations.favorites.rawValue)
+                .offset(y: -80)
+        }
+        .padding(.top, proxy.size.height / 10)
+    }
+}
