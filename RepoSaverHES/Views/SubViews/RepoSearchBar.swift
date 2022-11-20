@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct RepoSearchBar: View {
-    
+    @State private var query = ""
     @Binding var textString: String
     @Binding var searching: Bool
     let proxy: GeometryProxy
@@ -19,10 +19,12 @@ struct RepoSearchBar: View {
                 .foregroundColor(Color(.tertiaryLabel))
                 .padding(.horizontal, 5)
             
-            TextField("Search by repo or description...", text: $textString)
+            TextField("Search by repo or description...", text: $query)
                 .autocorrectionDisabled()
+                .textInputAutocapitalization(.never)
                 .onSubmit {
                     searching.toggle()
+                    textString = query
                 }
         }
         .frame(height: proxy.size.height / 30)

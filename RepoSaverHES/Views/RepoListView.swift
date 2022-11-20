@@ -8,18 +8,20 @@
 import SwiftUI
 
 struct RepoListView: View {
-    
     @StateObject private var vm = RepoVM()
-    @State var searching = false
-    @State var showFavorites = false
+    @State var showFavorites    = false
+    @State var searching        = false
+    
     var body: some View {
         NavigationStack {
             GeometryReader { proxy in
                 VStack(spacing: 0) {
-                    RepoHeader(proxy: proxy, showFavorites: $showFavorites)
+                    RepoHeader(showFavorites: $showFavorites, proxy: proxy)
+                    
                     RepoSearchBar(textString: $vm.searchFor,
                                   searching: $searching,
                                   proxy: proxy)
+                    
                     if vm.isLoading {
                         loadingScreen
                     } else {
@@ -59,11 +61,9 @@ extension RepoListView {
     private var listOfRepos: some View {
         ScrollView {
             LazyVStack(spacing: 0) {
-//                ForEach(vm.repos) { repo in
-//                    RepoCell(repo: repo)
-//                                }
-                RepoCell(repo: Repo.example)
-                
+                ForEach(vm.repos) { repo in
+                    RepoCell(repo: repo)
+                }
             }
         }
     }

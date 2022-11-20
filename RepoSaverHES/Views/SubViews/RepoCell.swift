@@ -5,11 +5,10 @@
 //  Created by Andres Gutierrez on 11/16/22.
 //
 
-import SwiftUI
 import RealmSwift
+import SwiftUI
 
 struct RepoCell: View {
-    
     @StateObject private var vm: RepoCellVM
     @ObservedResults(Favorite.self) var favorite
     

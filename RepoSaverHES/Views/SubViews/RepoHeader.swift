@@ -8,9 +8,8 @@
 import SwiftUI
 
 struct RepoHeader: View {
-    
-    let proxy: GeometryProxy
     @Binding var showFavorites: Bool
+    let proxy: GeometryProxy
     
     var body: some View {
         ZStack{
@@ -48,11 +47,5 @@ struct RepoHeader: View {
             .padding(.top, 25)
             .padding(.trailing, 5)
         }
-    }
-}
-
-struct RepoHeader_Previews: PreviewProvider {
-    static var previews: some View {
-        RepoListView()
     }
 }
