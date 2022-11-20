@@ -21,16 +21,16 @@ struct RepoHeader: View {
                 .ignoresSafeArea()
             
             HStack {
-                Text("Repos")
-                    .font(.title3)
-                    .fontWeight(.bold)
-                    .foregroundColor(.white)
-                    .padding(21)
-                    .onTapGesture {
-                        if showFavorites {
-                            showFavorites.toggle()
+                    Text("Repos")
+                        .font(.title3)
+                        .fontWeight(.bold)
+                        .foregroundColor(.white)
+                        .padding(21)
+                        .onTapGesture {
+                            if showFavorites {
+                                showFavorites.toggle()
+                            }
                         }
-                    }
                 
                 Spacer()
                 

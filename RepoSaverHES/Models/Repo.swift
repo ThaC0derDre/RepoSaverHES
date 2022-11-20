@@ -17,7 +17,7 @@ struct Repo: Codable, Identifiable {
     }
     
     let id: Int?
-    let fullName: String?
+    let fullName: String
     let owner: Owner
     let description: String?
     let language: String?

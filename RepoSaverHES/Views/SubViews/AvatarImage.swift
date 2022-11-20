@@ -1,5 +1,5 @@
 //
-//  AvatarImages.swift
+//  AvatarImage.swift
 //  RepoSaverHES
 //
 //  Created by Andres Gutierrez on 11/18/22.
@@ -7,30 +7,20 @@
 
 import SwiftUI
 
-struct AvatarImages: View {
+struct AvatarImage: View {
     
-    @StateObject private var vm: AvatarImageVM
+    @State var isLoading: Bool
+    let avatarImage: UIImage?
     
-    let owner: Owner
     
     var body: some View {
-        avatarImage
-    }
-    init(owner: Owner) {
-        _vm = StateObject(wrappedValue: AvatarImageVM(owner: owner))
-        self.owner = owner
-    }
-}
-
-extension AvatarImages {
-    
-    private var avatarImage: some View {
+        
         VStack {
-            if vm.isLoading {
+            if isLoading {
                 ProgressView()
                     .frame(width: 50, height: 50)
-            } else if let avatarImg = vm.avatarImage {
-                Image(uiImage: avatarImg)
+            } else if let avatarImage {
+                Image(uiImage: avatarImage)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 50, height: 50, alignment: .top)
@@ -43,8 +33,9 @@ extension AvatarImages {
             Spacer()
         }
     }
-    
-    
+}
+
+extension AvatarImage {
     private var placeHolderImage: some View {
         Image(systemName: "person.circle")
             .resizable()
@@ -52,6 +43,5 @@ extension AvatarImages {
             .frame(width: 42, height: 42, alignment: .top)
             .cornerRadius(50)
             .padding(5)
-        
     }
 }

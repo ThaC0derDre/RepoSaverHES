@@ -6,23 +6,29 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct RepoCell: View {
     
     @StateObject private var vm: RepoCellVM
+    @ObservedResults(Favorite.self) var favorite
     
     let repo: Repo
     var body: some View {
         VStack{
             HStack {
-                AvatarImages(owner: repo.owner)
-                repoInfo
+                AvatarImage(isLoading: vm.isLoading,
+                            avatarImage: vm.avatarImage)
+                
+                RepoBody(name: repo.fullName,
+                         desc: repo.description,
+                         lang: vm.language)
                 Spacer()
-                favorite
+                heart
             }
             .padding(10)
             
-            customBorder
+            CustomBorder()
         }
     }
     init(repo: Repo) {
@@ -38,47 +44,24 @@ struct RepoCell_Previews: PreviewProvider {
 }
 
 extension RepoCell {
-
     
-    private var repoInfo: some View {
-        VStack(alignment: .leading, spacing: 0) {
-            Text(repo.fullName ?? "No Name")
-                .fontWeight(.heavy)
-                .minimumScaleFactor(0.8)
-                .lineLimit(1)
-            
-            Text(repo.description ?? "No Description")
-                .foregroundColor(.secondary)
-                .lineLimit(4)
-            
-            HStack {
-                Text("Language:")
-                    .foregroundColor(.secondary)
-                
-                Text("\(vm.language ?? "No Language")")
-                    .foregroundColor(.white)
-                    .padding(3)
-                    .background(Color("AppRed"))
-                    .cornerRadius(5)
-            }
-            .padding(.vertical, 5)
+    
+    private var heart: some View {
+        Button {
+            vm.saveImage()
+            let newFav = Favorite(avatar: repo.owner.avatarUrl.pathOnly,
+                                  name: repo.fullName,
+                                  descrp: repo.description ?? "",
+                                  language: vm.language ?? "None")
+            $favorite.append(newFav)
+        }label: {
+            Image(systemName: "heart")
+                .resizable()
+                .frame(width: 22, height: 20)
+                .foregroundColor(.black)
+                .padding(.horizontal, 15)
         }
         
     }
     
-    private var favorite: some View {
-        Image(systemName: "heart")
-            .resizable()
-            .frame(width: 22, height: 20)
-            .foregroundColor(.black)
-            .padding(.horizontal, 15)
-    }
-    
-    private var customBorder: some View {
-        Rectangle()
-            .frame(height: 1)
-            .ignoresSafeArea()
-            .frame(maxWidth: .infinity)
-            .foregroundColor(.secondary.opacity(0.3))
-    }
 }

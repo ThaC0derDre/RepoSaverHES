@@ -65,7 +65,7 @@ extension RepoService: TargetType {
     
     
     var headers: [String : String]? {
-        return ["Authorization": "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"]
+        return ["Authorization": "dc9cf1330ccca7b454d5414347c2f69d09420cdb"]
     }
 }
 

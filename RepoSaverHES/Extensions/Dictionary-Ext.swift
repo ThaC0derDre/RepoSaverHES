@@ -8,7 +8,6 @@
 import Foundation
 
 extension Dictionary {
-    
     func mostUsedLang() -> String {
         var topLanguage = ""
         

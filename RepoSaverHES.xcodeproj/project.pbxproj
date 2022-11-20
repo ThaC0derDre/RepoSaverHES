@@ -15,9 +15,14 @@
 		311820D5292590DC0067A2C1 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 311820D4292590DC0067A2C1 /* RealmSwift */; };
 		311820D8292591090067A2C1 /* Moya in Frameworks */ = {isa = PBXBuildFile; productRef = 311820D7292591090067A2C1 /* Moya */; };
 		3132AA0129280A22006DE243 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132AA0029280A22006DE243 /* Item.swift */; };
-		3132AA032928470A006DE243 /* AvatarImages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132AA022928470A006DE243 /* AvatarImages.swift */; };
-		3132AA0729284C48006DE243 /* AvatarImageVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132AA0629284C48006DE243 /* AvatarImageVM.swift */; };
+		3132AA032928470A006DE243 /* AvatarImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132AA022928470A006DE243 /* AvatarImage.swift */; };
 		3132AA09292915B6006DE243 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132AA08292915B6006DE243 /* FavoritesView.swift */; };
+		3132AA0B29292395006DE243 /* Binding-Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132AA0A29292395006DE243 /* Binding-Ext.swift */; };
+		3132AA0E29294324006DE243 /* LocalFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132AA0D29294324006DE243 /* LocalFileManager.swift */; };
+		3132AA102929511D006DE243 /* String-Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132AA0F2929511D006DE243 /* String-Ext.swift */; };
+		3132AA122929A49B006DE243 /* RepoBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132AA112929A49B006DE243 /* RepoBody.swift */; };
+		3132AA152929A894006DE243 /* CustomBorder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132AA142929A894006DE243 /* CustomBorder.swift */; };
+		3132AA172929AB4B006DE243 /* FavoriteVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3132AA162929AB4B006DE243 /* FavoriteVM.swift */; };
 		31CD06412925927700D0640D /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06402925927700D0640D /* Repo.swift */; };
 		31CD06432925931B00D0640D /* Owner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06422925931B00D0640D /* Owner.swift */; };
 		31CD06452925935A00D0640D /* Favorite.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CD06442925935A00D0640D /* Favorite.swift */; };
@@ -42,9 +47,14 @@
 		311820C529258F270067A2C1 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		3132A9FF2927F40D006DE243 /* ToDo.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = ToDo.md; sourceTree = "<group>"; };
 		3132AA0029280A22006DE243 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
-		3132AA022928470A006DE243 /* AvatarImages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImages.swift; sourceTree = "<group>"; };
-		3132AA0629284C48006DE243 /* AvatarImageVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImageVM.swift; sourceTree = "<group>"; };
+		3132AA022928470A006DE243 /* AvatarImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarImage.swift; sourceTree = "<group>"; };
 		3132AA08292915B6006DE243 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		3132AA0A29292395006DE243 /* Binding-Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Binding-Ext.swift"; sourceTree = "<group>"; };
+		3132AA0D29294324006DE243 /* LocalFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalFileManager.swift; sourceTree = "<group>"; };
+		3132AA0F2929511D006DE243 /* String-Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String-Ext.swift"; sourceTree = "<group>"; };
+		3132AA112929A49B006DE243 /* RepoBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepoBody.swift; sourceTree = "<group>"; };
+		3132AA142929A894006DE243 /* CustomBorder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomBorder.swift; sourceTree = "<group>"; };
+		3132AA162929AB4B006DE243 /* FavoriteVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteVM.swift; sourceTree = "<group>"; };
 		31CD06402925927700D0640D /* Repo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		31CD06422925931B00D0640D /* Owner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Owner.swift; sourceTree = "<group>"; };
 		31CD06442925935A00D0640D /* Favorite.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Favorite.swift; sourceTree = "<group>"; };
@@ -101,6 +111,7 @@
 				311820CC29258F8B0067A2C1 /* Views */,
 				311820CD29258F970067A2C1 /* ViewModels */,
 				311820CE29258F9D0067A2C1 /* Models */,
+				3132AA0C29294305006DE243 /* Manager */,
 				311820D029258FAF0067A2C1 /* Networking */,
 				311820CF29258FA50067A2C1 /* Extensions */,
 				31D192B62925D12C00CD869E /* Assests */,
@@ -120,9 +131,9 @@
 		311820CC29258F8B0067A2C1 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				31D192B72925DAD800CD869E /* SubViews */,
 				311820C029258F260067A2C1 /* RepoListView.swift */,
 				3132AA08292915B6006DE243 /* FavoritesView.swift */,
+				31D192B72925DAD800CD869E /* SubViews */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -132,7 +143,7 @@
 			children = (
 				31CD064A2925A14800D0640D /* RepoVM.swift */,
 				31D192BC2925F3E800CD869E /* RepoCellVM.swift */,
-				3132AA0629284C48006DE243 /* AvatarImageVM.swift */,
+				3132AA162929AB4B006DE243 /* FavoriteVM.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -152,6 +163,8 @@
 			isa = PBXGroup;
 			children = (
 				31D192BE2925FC5700CD869E /* Dictionary-Ext.swift */,
+				3132AA0A29292395006DE243 /* Binding-Ext.swift */,
+				3132AA0F2929511D006DE243 /* String-Ext.swift */,
 				31E9608F2926C93E008DCFB3 /* HostingController.swift */,
 			);
 			path = Extensions;
@@ -166,6 +179,22 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
+		3132AA0C29294305006DE243 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				3132AA0D29294324006DE243 /* LocalFileManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		3132AA132929A87A006DE243 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				3132AA142929A894006DE243 /* CustomBorder.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		31D192B62925D12C00CD869E /* Assests */ = {
 			isa = PBXGroup;
 			children = (
@@ -178,10 +207,12 @@
 		31D192B72925DAD800CD869E /* SubViews */ = {
 			isa = PBXGroup;
 			children = (
+				3132AA132929A87A006DE243 /* Components */,
 				31D192B82925DB0500CD869E /* RepoCell.swift */,
 				31D192BA2925F1EC00CD869E /* RepoHeader.swift */,
 				31DA8E3229270A3D0055098D /* RepoSearchBar.swift */,
-				3132AA022928470A006DE243 /* AvatarImages.swift */,
+				3132AA022928470A006DE243 /* AvatarImage.swift */,
+				3132AA112929A49B006DE243 /* RepoBody.swift */,
 			);
 			path = SubViews;
 			sourceTree = "<group>";
@@ -268,9 +299,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3132AA032928470A006DE243 /* AvatarImages.swift in Sources */,
+				3132AA032928470A006DE243 /* AvatarImage.swift in Sources */,
 				31CD064B2925A14800D0640D /* RepoVM.swift in Sources */,
 				31E960902926C93E008DCFB3 /* HostingController.swift in Sources */,
+				3132AA122929A49B006DE243 /* RepoBody.swift in Sources */,
 				31CD06452925935A00D0640D /* Favorite.swift in Sources */,
 				31D192BD2925F3E800CD869E /* RepoCellVM.swift in Sources */,
 				3132AA0129280A22006DE243 /* Item.swift in Sources */,
@@ -278,13 +310,17 @@
 				31D192BB2925F1EC00CD869E /* RepoHeader.swift in Sources */,
 				3132AA09292915B6006DE243 /* FavoritesView.swift in Sources */,
 				31CD06412925927700D0640D /* Repo.swift in Sources */,
+				3132AA0B29292395006DE243 /* Binding-Ext.swift in Sources */,
 				31CD06472925A01300D0640D /* MoyaTarget.swift in Sources */,
 				31CD06432925931B00D0640D /* Owner.swift in Sources */,
+				3132AA102929511D006DE243 /* String-Ext.swift in Sources */,
 				31DA8E3329270A3D0055098D /* RepoSearchBar.swift in Sources */,
+				3132AA172929AB4B006DE243 /* FavoriteVM.swift in Sources */,
 				31D192B92925DB0500CD869E /* RepoCell.swift in Sources */,
-				3132AA0729284C48006DE243 /* AvatarImageVM.swift in Sources */,
+				3132AA0E29294324006DE243 /* LocalFileManager.swift in Sources */,
 				311820C129258F260067A2C1 /* RepoListView.swift in Sources */,
 				311820BF29258F260067A2C1 /* RepoSaverHESApp.swift in Sources */,
+				3132AA152929A894006DE243 /* CustomBorder.swift in Sources */,
 				31CD06492925A06300D0640D /* RepoService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

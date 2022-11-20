@@ -6,22 +6,40 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct FavoritesView: View {
-    
+    @ObservedResults(Favorite.self) var favorite
+    @Environment(\.presentationMode) var presentation
+    @StateObject private var vm = FavoriteVM()
     @State var showFavorites = true
     @State var textString = ""
-    @State var isSearching = false
     
     var body: some View {
         GeometryReader { proxy in
             VStack(spacing: 0) {
                 RepoHeader(proxy: proxy, showFavorites: $showFavorites)
-                RepoSearchBar(textString: $textString, searching: $isSearching, proxy: proxy)
-                //            Spacer()
+                List {
+                    ForEach(favorite) { repo in
+                            HStack {
+                                AvatarImage(isLoading: false,
+                                            avatarImage: vm.getImageFromStorage(avatarPath: repo.avatar))
+                                RepoBody(name: repo.name,
+                                         desc: repo.descrp,
+                                         lang: repo.language)
+                                
+                            }
+                            
+                        }
+                    .onDelete(perform: $favorite.remove)
+                    .listRowSeparator(.hidden)
+                }
+                .listStyle(.plain)
             }
             .ignoresSafeArea()
-            
+            .onChange(of: showFavorites) { newValue in
+                presentation.wrappedValue.dismiss()
+            }
         }
     }
 }
@@ -31,3 +49,4 @@ struct FavoritesView_Previews: PreviewProvider {
         FavoritesView()
     }
 }
+
