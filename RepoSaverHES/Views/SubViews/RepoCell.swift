@@ -17,8 +17,7 @@ struct RepoCell: View {
     var body: some View {
         VStack{
             HStack {
-                AvatarImage(isLoading: vm.isLoading,
-                            avatarImage: vm.avatarImage)
+                AvatarImage(avatarImage: vm.avatarImage)
                 
                 RepoBody(name: repo.fullName,
                          desc: repo.description,
@@ -48,20 +47,34 @@ extension RepoCell {
     
     private var heart: some View {
         Button {
-            vm.saveImage()
-            let newFav = Favorite(avatar: repo.owner.avatarUrl.pathOnly,
-                                  name: repo.fullName,
-                                  descrp: repo.description ?? "",
-                                  language: vm.language ?? "None")
-            $favorite.append(newFav)
+            if isLoved() {
+                $favorite.remove(unlovedFavorite())
+                vm.deleteImage()
+            }else {
+                
+                vm.saveImage()
+                let newFav = Favorite(avatar: repo.owner.avatarUrl.pathOnly,
+                                      name: repo.fullName,
+                                      descrp: repo.description ?? "",
+                                      language: vm.language ?? "None")
+                $favorite.append(newFav)
+            }
         }label: {
-            Image(systemName: "heart")
+            Image(systemName: isLoved() ? "heart.fill" : "heart")
                 .resizable()
                 .frame(width: 22, height: 20)
                 .foregroundColor(.black)
                 .padding(.horizontal, 15)
         }
         
+    }
+    
+    func isLoved() -> Bool {
+        favorite.contains { $0.name == repo.fullName  }
+    }
+ 
+    func unlovedFavorite() -> Results<Favorite>.Element {
+         favorite.filter { $0.name == repo.fullName }.first!
     }
     
 }

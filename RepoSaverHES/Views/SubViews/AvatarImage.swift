@@ -6,20 +6,15 @@
 //
 
 import SwiftUI
-
 struct AvatarImage: View {
     
-    @State var isLoading: Bool
     let avatarImage: UIImage?
     
     
     var body: some View {
         
         VStack {
-            if isLoading {
-                ProgressView()
-                    .frame(width: 50, height: 50)
-            } else if let avatarImage {
+            if let avatarImage {
                 Image(uiImage: avatarImage)
                     .resizable()
                     .scaledToFit()

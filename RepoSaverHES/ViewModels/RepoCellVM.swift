@@ -81,9 +81,9 @@ class RepoCellVM: ObservableObject {
 //    func getImageFromStorage() {
 //        avatarImage = manager.getImage(name: avatarUrl.pathOnly)
 //    }
-//
-//    func deleteImage() {
-//        manager.deleteImage(name: avatarUrl.pathOnly)
-//    }
+
+    func deleteImage() {
+        manager.deleteImage(name: avatarUrl.pathOnly)
+    }
     
 }

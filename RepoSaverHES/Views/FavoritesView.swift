@@ -22,8 +22,7 @@ struct FavoritesView: View {
                 List {
                     ForEach(favorite) { repo in
                             HStack {
-                                AvatarImage(isLoading: false,
-                                            avatarImage: vm.getImageFromStorage(avatarPath: repo.avatar))
+                                AvatarImage(avatarImage: vm.getImageFromStorage(avatarPath: repo.avatar))
                                 RepoBody(name: repo.name,
                                          desc: repo.descrp,
                                          lang: repo.language)
